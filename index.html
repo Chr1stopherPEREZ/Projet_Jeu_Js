@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet | Jeu | JS</title>
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <!-- Touche à activer -->
+      <section id="absolute">
+        <div class="container">
+          <p class="key">Touches</p>
+          <ul class="keys">
+            <li class="li-type-1">
+              <input type="submit" class="icon fa" value="&#xf0e2;" />
+            </li>
+            <li class="li-type-2">
+              <p>=</p>
+            </li>
+            <li class="li-type-3">
+              <img src="/src/assets/images/a.png" alt="" />
+            </li>
+          </ul>
+          <ul class="keys">
+            <li class="li-type-1">
+              <input type="submit" class="icon fa" value="&#xf084;" />
+            </li>
+            <li class="li-type-2">
+              <p>=</p>
+            </li>
+            <li class="li-type-3">
+              <img src="/src/assets/images/f.png" alt="" />
+            </li>
+          </ul>
+          <ul class="keys">
+            <li class="li-type-1">
+              <input type="submit" class="icon fa" value="&#xf01e;" />
+            </li>
+            <li class="li-type-2">
+              <p>=</p>
+            </li>
+            <li class="li-type-3">
+              <img src="/src/assets/images/e.png" alt="" />
+            </li>
+          </ul>
+          <ul class="keys">
+            <li class="li-type-1">
+              <input type="submit" class="icon fa" value="&#xf062;" />
+            </li>
+            <li class="li-type-2">
+              <p>=</p>
+            </li>
+            <li class="li-type-3">
+              <img src="/src/assets/images/z.png" alt="" />
+            </li>
+          </ul>
+          <ul class="keys">
+            <li class="li-type-1">
+              <input type="submit" class="icon fa" value="&#xf060;" />
+            </li>
+            <li class="li-type-2">
+              <p>=</p>
+            </li>
+            <li class="li-type-3">
+              <img src="/src/assets/images/q.png" alt="" />
+            </li>
+          </ul>
+          <ul class="keys">
+            <li class="li-type-1">
+              <input type="submit" class="icon fa" value="&#xf061;" />
+            </li>
+            <li class="li-type-2">
+              <p>=</p>
+            </li>
+            <li class="li-type-3">
+              <img src="/src/assets/images/d.png" alt="" />
+            </li>
+          </ul>
+          <ul class="keys">
+            <li class="li-type-1">
+              <input type="submit" class="icon fa" value="&#xf063;" />
+            </li>
+            <li class="li-type-2">
+              <p>=</p>
+            </li>
+            <li class="li-type-3">
+              <img src="/src/assets/images/s.png" alt="" />
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- Vue du personnage -->
+      <section id="view"></section>
+
+      <!-- Texte narratif -->
+      <section id="text"></section>
+
+      <!-- Btn ou Action -->
+      <section id="actions"></section>
+    </main>
+
+    <!-- Image background -->
+    <svg id="fireSVG">
+      <defs>
+        <filter id="fireColorFilter">
+          <feTurbulence
+            type="fractalNoise"
+            stitchTiles="stitch"
+            baseFrequency="0.02"
+            numOctaves="8"
+          />
+          <feColorMatrix
+            type="matrix"
+            values="1  0  0  0  0
+                                                                              1  0  0  0  0
+                                                                              1  0  0  0  0
+                                                                              0  0  0  0  1"
+          />
+          <feComponentTransfer>
+            <feFuncR
+              type="table"
+              tableValues="1    1   1     1     1  "
+            ></feFuncR>
+            <feFuncG
+              type="table"
+              tableValues="0.05 0.1 0.133 0.166 0.2"
+            ></feFuncG>
+            <feFuncB
+              type="table"
+              tableValues="0    0   0     0     0  "
+            ></feFuncB>
+            <feFuncA
+              type="table"
+              tableValues="1    1   1     1     1  "
+            ></feFuncA>
+          </feComponentTransfer>
+        </filter>
+        <filter id="fireDetailFilter">
+          <feTurbulence
+            type="fractalNoise"
+            seed="2"
+            stitchTiles="stitch"
+            baseFrequency="0.01"
+            numOctaves="6"
+          />
+          <feColorMatrix
+            type="matrix"
+            values="1  0  0  0  0
+                                                                              1  0  0  0  0
+                                                                              1  0  0  0  0
+                                                                              0  0  0  0  1"
+          />
+        </filter>
+        <filter id="fireShapeFilter">
+          <feTurbulence
+            type="fractalNoise"
+            seed="3"
+            baseFrequency="0.005"
+            numOctaves="2"
+            result="turbulence"
+          />
+          <feColorMatrix
+            type="matrix"
+            values="1  0  0  0  0
+                                                                              1  0  0  0  0
+                                                                              1  0  0  0  0
+                                                                              0  0  0  0  1"
+          />
+        </filter>
+        <rect
+          id="fireColor"
+          x="8%"
+          y="8%"
+          width="84%"
+          height="83.5%"
+          filter="url(#fireColorFilter)"
+        />
+        <rect
+          id="fireDetail"
+          x="8%"
+          y="8%"
+          width="84%"
+          height="83.5%"
+          filter="url(#fireDetailFilter)"
+        />
+        <linearGradient id="fireGradient" x1="0%" x2="0%" y1="100%" y2="0%">
+          <stop offset="00%" stop-color="#fff" />
+          <stop offset="80%" stop-color="#000" />
+        </linearGradient>
+      </defs>
+      <g class="slide">
+        <use href="#fireColor" x="0%" y="0%" width="100%" height="100%" />
+        <use href="#fireColor" x="0%" y="-100%" width="100%" height="100%" />
+      </g>
+      <g class="multiply">
+        <rect
+          x="0%"
+          y="0%"
+          width="100%"
+          height="100%"
+          fill="url(#fireGradient)"
+        />
+        <rect
+          x="0%"
+          y="0%"
+          width="100%"
+          height="100%"
+          filter="url(#fireShapeFilter)"
+          class="multiply"
+        />
+      </g>
+      <g class="slide multiply">
+        <use href="#fireDetail" x="0%" y="0%" width="100%" height="100%" />
+        <use href="#fireDetail" x="0%" y="-100%" width="100%" height="100%" />
+      </g>
+    </svg>
+  </body>
+
+  <!-- JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    defer
+  ></script>
+  <script type="module" src="/src/js/main.js" defer></script>
+</html>
+
+<!-- Index.html -->
