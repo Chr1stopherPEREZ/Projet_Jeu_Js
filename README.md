@@ -4,8 +4,6 @@ Un petit jeu de labyrinthe en JavaScript natif. Votre mission : retrouver la cl�
 
 Projet développé par [Christopher PEREZ](https://github.com/Chr1stopherPerez), en réponse à un brief proposé durant ma formation à [SIMPLON](https://www.simplon.co/).
 
----
-
 ## Contexte & Objectif
 
 À l’occasion d’un salon du jeu vidéo, notre studio voulait un jeu d’appoint : un labyrinthe en POO JavaScript, manipulant le DOM pour l’affichage.
@@ -63,9 +61,7 @@ Vous contrôlez un héros enfermé dans un couloir sombre : réussirez-vous à t
 └─ map.json       # JSON décrivant la carte et fins
 ```
 
----
-
-## 🔧 Technologies & Méthodologie
+## Technologies & Méthodologie
 
 - **HTML5 & CSS3** pour la structure et l’animation de fond.
 - **JavaScript natif (ES6+)** pour la logique, la POO et la gestion du DOM.
