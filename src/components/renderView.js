@@ -8,11 +8,10 @@ export function renderView(imageName) {
   const viewElement = document.getElementById("view");
   if (!viewElement) return;
 
-  const basePath = "/src/assets/images/";
-
+  /* Utilisation d'un chemin relatif compatible Vite (dev + prod) */
   const imageSrc = imageName
-    ? `${basePath}${imageName}`
-    : `${basePath}default.png`;
+    ? new URL(`../assets/images/${imageName}`, import.meta.url).href
+    : new URL(`../assets/images/default.png`, import.meta.url).href;
 
   console.log("Chemin final de l'image :", imageSrc); /* Pour debug */
 
