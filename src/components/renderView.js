@@ -8,9 +8,7 @@ export function renderView(imageName) {
   const viewElement = document.getElementById("view");
   if (!viewElement) return;
 
-  const imageSrc = imageName
-    ? `/assets/images/${imageName}`
-    : `/assets/images/default.png`;
+  const imageSrc = imageName ? `/${imageName}` : `/images/default.png`;
 
   console.log("Chemin final de l'image :", imageSrc); /* Pour debug */
 

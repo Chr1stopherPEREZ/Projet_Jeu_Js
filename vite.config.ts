@@ -2,8 +2,6 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "./",
-
   build: {
     /* dossier généré par `vite build` */
     outDir: "dist",
@@ -11,4 +9,4 @@ export default defineConfig({
   },
 });
 
-/* Passage a Pnpm, Merci Mathis */
+/* Passage à Pnpm, Merci Mathis */

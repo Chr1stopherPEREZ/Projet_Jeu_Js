@@ -1,6 +1,7 @@
 import { Player } from "../core/Player.js";
 import { GameEngine } from "../core/GameEngine.js";
 import { loadMapData } from "../api/dataLoader.js";
+import { renderView } from "../components/renderView.js";
 
 /* L'écouteur DOMContentLoaded assure que le code s'exécute une fois le DOM entièrement chargé */
 document.addEventListener("DOMContentLoaded", async () => {
@@ -27,11 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     mapData: mapData,
 
     /* Callback pour mettre à jour l'affichage de la vue */
-    renderView: (viewSrc) => {
-      document.getElementById(
-        "view"
-      ).innerHTML = `<img src="/src/assets/images/${viewSrc}" alt="Vue du joueur">`;
-    },
+    renderView: renderView,
 
     /* Callback pour afficher le texte narratif dans la section #text */
     renderText: (narrativeText) => {
